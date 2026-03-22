@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>TEAM NSE | Premium Landing Page</title>
+  <!-- Google Fonts: elegant modern sans + display for logo -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at 10% 20%, #0a0c12, #030507);
+      font-family: 'Inter', sans-serif;
+      color: #f0f3fa;
+      line-height: 1.4;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    /* premium glassmorphic container */
+    .landing-container {
+      max-width: 1300px;
+      width: 100%;
+      background: rgba(12, 16, 28, 0.65);
+      backdrop-filter: blur(12px);
+      border-radius: 3rem;
+      border: 1px solid rgba(255, 215, 120, 0.25);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 210, 100, 0.1) inset;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    /* inner content wrapper */
+    .premium-content {
+      padding: 2.5rem 2rem 3rem;
+    }
+
+    /* header with logo and brand */
+    .brand-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255, 200, 100, 0.3);
+      padding-bottom: 1.5rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: linear-gradient(135deg, #ffffff12, #ffd96610);
+      padding: 0.5rem 1.2rem;
+      border-radius: 80px;
+      backdrop-filter: blur(4px);
+    }
+
+    .team-nse-logo {
+      font-family: 'Space Grotesk', monospace;
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(130deg, #FFE6A7, #FFBF40);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .logo-badge {
+      background: #ffbe3c20;
+      border-radius: 40px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #FFD966;
+      border: 1px solid #ffcf6e50;
+      letter-spacing: 0.5px;
+    }
+
+    .premium-tag {
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      border-left: 3px solid #FFC857;
+    }
+
+    .premium-tag i {
+      color: #FFC857;
+      margin-right: 6px;
+    }
+
+    /* hero section */
+    .hero {
+      text-align: center;
+      margin: 2rem 0 2.2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(120deg, #FFFFFF, #FFD966, #FFB347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #cdd9ff;
+      max-width: 650px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    .glow-text {
+      color: #ffdd99;
+      font-weight: 600;
+    }
+
+    /* card grid style for cta */
+    .cta-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2.8rem 0 2rem;
+    }
+
+    /* premium button cards */
+    .action-card {
+      background: rgba(20, 24, 40, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      flex: 1;
+      min-width: 240px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      border: 1px solid rgba(255, 200, 100, 0.4);
+      box-shadow: 0 10px 25px -10px rgba(0,0,0,0.5);
+    }
+
+    .action-card:hover {
+      transform: translateY(-6px);
+      border-color: #ffcd7e;
+      box-shadow: 0 20px 30px -12px rgba(255, 200, 80, 0.2);
+    }
+
+    .action-icon {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+      color: #ffcd7e;
+    }
+
+    .action-card h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .action-desc {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-bottom: 1.8rem;
+    }
+
+    /* primary button style (register) */
+    .premium-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(95deg, #FFC857, #FFA62E);
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      color: #0c0f1c;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(255, 200, 70, 0.3);
+      letter-spacing: 0.3px;
+    }
+
+    .premium-btn i {
+      font-size: 1.1rem;
+      transition: transform 0.2s;
+    }
+
+    .premium-btn:hover {
+      background: linear-gradient(95deg, #FFD46C, #FFB347);
+      transform: scale(1.02);
+      box-shadow: 0 10px 22px rgba(255, 190, 70, 0.5);
+    }
+
+    .premium-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* telegram specific */
+    .telegram-btn {
+      background: linear-gradient(95deg, #2AABEE, #1F8BCB);
+      box-shadow: 0 6px 14px rgba(42, 171, 238, 0.3);
+      color: white;
+    }
+
+    .telegram-btn:hover {
+      background: linear-gradient(95deg, #3BB3F5, #2299DD);
+    }
+
+    /* teacher contact block (premium elegant) */
+    .teacher-section {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(112deg, rgba(25, 30, 45, 0.7), rgba(10, 12, 25, 0.8));
+      border-radius: 2rem;
+      padding: 1.4rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      border: 1px solid rgba(255, 210, 110, 0.5);
+    }
+
+    .teacher-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .teacher-icon {
+      background: #ffbe3c20;
+      border-radius: 60px;
+      padding: 0.7rem;
+      font-size: 1.8rem;
+      color: #FFD966;
+    }
+
+    .teacher-text h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+
+    .teacher-text p {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .teacher-link-btn {
+      background: transparent;
+      border: 1.5px solid #ffcd7e;
+      border-radius: 60px;
+      padding: 0.7rem 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-weight: 600;
+      color: #FFDEA5;
+      transition: all 0.2s;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .teacher-link-btn i {
+      font-size: 1rem;
+    }
+
+    .teacher-link-btn:hover {
+      background: #ffcd7e20;
+      border-color: #ffcf6e;
+      color: #fff0cc;
+      transform: scale(1.02);
+    }
+
+    /* footer small */
+    .footer-note {
+      text-align: center;
+      margin-top: 2.8rem;
+      font-size: 0.7rem;
+      opacity: 0.5;
+      border-top: 1px solid rgba(255,215,120,0.2);
+      padding-top: 1.8rem;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .premium-content {
+        padding: 1.8rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .action-card {
+        padding: 1.4rem;
+      }
+      .teacher-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .teacher-info {
+        justify-content: center;
+      }
+      .brand-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .premium-btn {
+        padding: 0.75rem 1rem;
+      }
+    }
+
+    /* ripple / tap effect simulation (just for UX) */
+    .tap-effect {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="landing-container">
+  <div class="premium-content">
+    <!-- Header with TEAM NSE LOGO area -->
+    <div class="brand-header">
+      <div class="logo-area">
+        <span class="team-nse-logo">TEAM NSE</span>
+        <span class="logo-badge"><i class="fas fa-crown"></i> PREMIUM</span>
+      </div>
+      <div class="premium-tag">
+        <i class="fas fa-gem"></i> Elite Trading Circle
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Unlock The Edge</h1>
+      <p>Join <span class="glow-text">TEAM NSE</span> – premium signals, market intelligence, and direct access to top mentors. <br>Your journey to consistent profitability starts now.</p>
+    </div>
+
+    <!-- TWO PRIMARY ACTION BUTTONS: REGISTER + TELEGRAM GROUP -->
+    <div class="cta-grid">
+      <!-- REGISTER CARD (UI TAP TO BUTTON) -->
+      <div class="action-card">
+        <div class="action-icon"><i class="fas fa-user-plus"></i></div>
+        <h3>Join Elite</h3>
+        <div class="action-desc">Register now & get instant access to private dashboard + premium tools</div>
+        <!-- Register button with open URL exactly as required -->
+        <button id="registerBtn" class="premium-btn tap-effect">
+          <i class="fas fa-arrow-right-to-bracket"></i> REGISTER NOW
+        </button>
+      </div>
+
+      <!-- TELEGRAM BUTTON CARD (Group) -->
+      <div class="action-card">
+        <div class="action-icon"><i class="fab fa-telegram"></i></div>
+        <h3>TELEGRAM VIP</h3>
+        <div class="action-desc">Join our private channel for live updates & community calls</div>
+        <button id="telegramBtn" class="premium-btn telegram-btn tap-effect">
+          <i class="fab fa-telegram-plane"></i> JOIN GROUP
+        </button>
+      </div>
+    </div>
+
+    <!-- TEACHER CONTACT SECTION: open link https://t.me/TASHANWINNSE1 -->
+    <div class="teacher-section">
+      <div class="teacher-info">
+        <div class="teacher-icon">
+          <i class="fas fa-chalkboard-user"></i>
+        </div>
+        <div class="teacher-text">
+          <h4><i class="fas fa-star-of-life" style="font-size: 0.8rem;"></i> Teacher / Mentor Contact</h4>
+          <p>Direct 1-on-1 mentorship & premium guidance — reach out personally</p>
+        </div>
+      </div>
+      <a id="teacherContactLink" href="#" class="teacher-link-btn tap-effect">
+        <i class="fab fa-telegram"></i> CONTACT TEACHER
+        <i class="fas fa-chevron-right"></i>
+      </a>
+    </div>
+
+    <div class="footer-note">
+      <i class="fas fa-shield-alt"></i> Official TEAM NSE — Trusted by 10,000+ traders • Premium invitation only
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // --- EXACT URLS according to requirement ---
+    const REGISTER_URL = "https://tashanwin15.com/#/register?invitationCode=28481290265";
+    const TELEGRAM_GROUP_URL = "https://t.me/+I8RcquJmfS1mNzk1";
+    const TEACHER_URL = "https://t.me/TASHANWINNSE1";
+
+    // Get DOM elements
+    const registerBtn = document.getElementById('registerBtn');
+    const telegramBtn = document.getElementById('telegramBtn');
+    const teacherLink = document.getElementById('teacherContactLink');
+
+    // Helper: open URL (tap to button)
+    function openUrl(url) {
+      if (!url) return;
+      // security & usability: open in same tab (or new tab? but typical landing behavior: open link)
+      // For better user experience, we use window.location.href for same tab (or _blank if preferred).
+      // Usually registration/telegram links open in same tab or new tab? to keep landing page, better open new tab for external links.
+      // But requirement: "TAP TO BUTTON OPEN URL" — we ensure the link opens when tapping.
+      // Use window.open with _blank to preserve landing page context (better UX)
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
+    // Function to add ripple/tap feedback + open link
+    function attachButtonHandler(element, url) {
+      if (!element) return;
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        // optional haptic / subtle animation class
+        element.style.transform = 'scale(0.97)';
+        setTimeout(() => {
+          if (element.style) element.style.transform = '';
+        }, 120);
+        // open the required URL
+        openUrl(url);
+      });
+    }
+
+    // attach handlers for buttons and teacher link (anchor)
+    attachButtonHandler(registerBtn, REGISTER_URL);
+    attachButtonHandler(telegramBtn, TELEGRAM_GROUP_URL);
+    
+    // Teacher contact: open TEACHER_URL (exactly https://t.me/TASHANWINNSE1)
+    if (teacherLink) {
+      teacherLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        // micro tap effect
+        teacherLink.style.transform = 'scale(0.96)';
+        setTimeout(() => {
+          if (teacherLink.style) teacherLink.style.transform = '';
+        }, 120);
+        openUrl(TEACHER_URL);
+      });
+      // Also set href to javascript:void(0) to avoid default anchor behavior but we override
+      teacherLink.setAttribute('href', 'javascript:void(0)');
+    }
+
+    // Additional touch/click for any .tap-effect (just UX)
+    const tapElements = document.querySelectorAll('.tap-effect');
+    tapElements.forEach(el => {
+      // avoid double listeners if needed, but our specific buttons already have, but this just adds extra effect not harm.
+      // but we already added precise handlers, we just add a tiny active style without breaking.
+      el.addEventListener('touchstart', function() {
+        this.style.transition = 'transform 0.05s';
+        this.style.transform = 'scale(0.98)';
+      }, { passive: true });
+      el.addEventListener('touchend', function() {
+        this.style.transform = '';
+        setTimeout(() => { this.style.transition = ''; }, 100);
+      });
+      el.addEventListener('touchcancel', function() {
+        this.style.transform = '';
+      });
+    });
+
+    // Console log to ensure correct mapping (debug)
+    console.log("TEAM NSE Premium Landing — Buttons mapped: REGISTER | TELEGRAM | TEACHER CONTACT");
+  })();
+</script>
+</body>
+</html>
